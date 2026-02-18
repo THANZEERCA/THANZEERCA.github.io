@@ -25,11 +25,18 @@
       <a href="pages/resume.html">Resume</a>
       <a href="pages/contact.html">Contact</a>
     </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark Mode">
+      <span class="icon-sun">☀️</span>
+      <span class="icon-moon">🌙</span>
+    </button>
+
     <button class="hamburger" id="hamburger" aria-label="Toggle menu">
       <span></span>
       <span></span>
       <span></span>
     </button>
+  </nav>
+
   </nav>
 
   <canvas id="honeycomb-canvas"></canvas>
@@ -39,7 +46,7 @@
     <canvas id="particles-canvas"></canvas>
     <div class="hero-content">
       <div class="profile-section">
-        <img src="assets/images/profile.jpg" alt="C A Thanzeer" class="profile-photo" />
+        <img src="assets/images/profile.png" alt="C A Thanzeer" class="profile-photo" />
       </div>
       <p class="hero-greeting">Hello, I'm</p>
       <h1 class="hero-title">
@@ -124,23 +131,21 @@
       <div class="tech-category">
         <h3><span class="cat-icon">🎨</span> Frontend</h3>
         <div class="pills-wrap">
-          <span class="pill">React</span>
-          <span class="pill">TypeScript</span>
+          <span class="pill">HTML</span>
+          <span class="pill">CSS</span>
           <span class="pill">JavaScript</span>
-          <span class="pill">HTML5</span>
-          <span class="pill">CSS3</span>
-          <span class="pill">GSAP</span>
-          <span class="pill">Chart.js</span>
+          <span class="pill">Bootstrap</span>
+          <span class="pill">React</span>
         </div>
       </div>
       <div class="tech-category">
         <h3><span class="cat-icon">🔧</span> Backend</h3>
         <div class="pills-wrap">
           <span class="pill">Node.js</span>
-          <span class="pill">Express</span>
+          <span class="pill">Express.js</span>
           <span class="pill">PHP</span>
           <span class="pill">CodeIgniter</span>
-          <span class="pill">RESTful APIs</span>
+          <span class="pill">Python</span>
         </div>
       </div>
       <div class="tech-category">
@@ -149,13 +154,42 @@
           <span class="pill">MongoDB</span>
           <span class="pill">MySQL</span>
           <span class="pill">PostgreSQL</span>
+          <span class="pill">Nginx</span>
+          <span class="pill">Git</span>
+          <span class="pill">GitHub</span>
+          <span class="pill">Postman</span>
         </div>
-        <p class="project-description">
-          Detailed documentation and testing playground for internal APIs.
-        </p>
-        <a href="pages/projects.html" class="link-arrow">View Project Cases →</a>
       </div>
     </div>
+  </section>
+
+  <!-- ═══ FEATURED PROJECT ═══ -->
+  <section class="container">
+    <div class="section-header">
+      <span class="section-label">Highlight</span>
+      <h2 class="section-title">Featured Project</h2>
+      <p class="section-subtitle">A glimpse into my production work</p>
+    </div>
+    <div class="card project-card">
+      <div class="card-header">
+        <h3>CUSAT Instrument Facility</h3>
+        <span class="badge">Production</span>
+      </div>
+      <p class="tech-stack">PHP • CodeIgniter • MySQL</p>
+      <p class="description">
+        Developed instrument management system for Cochin University. Implemented user authentication, booking, and
+        availability tracking. Optimized database schema, reducing query times.
+      </p>
+      <ul class="features">
+        <li>Authentication & Authorization</li>
+        <li>Advanced Booking Workflow</li>
+        <li>Database Optimization</li>
+        <li>Responsive Interface</li>
+      </ul>
+      <a href="https://cif.cusat.ac.in" target="_blank" class="link-arrow">View Live Site →</a>
+    </div>
+  </section>
+  </div>
   </section>
 
   <!-- ═══ CTA ═══ -->
@@ -171,6 +205,13 @@
   <footer class="footer">
     <p>&copy; 2026 C A Thanzeer. All rights reserved.</p>
   </footer>
+
+  <button id="back-to-top" aria-label="Back to Top">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 15l-6-6-6 6" />
+    </svg>
+  </button>
 
   <script src="assets/js/main.js"></script>
   <script src="assets/js/animations.js"></script>

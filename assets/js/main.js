@@ -7,9 +7,42 @@ document.addEventListener("DOMContentLoaded", () => {
   initNavbarScroll();
   initTypingEffect();
   initCounterAnimation();
+  initNavbarScroll();
+  initTypingEffect();
+  initCounterAnimation();
   initParticles();
   initHoneycombAnimation();
+  initBackToTop();
+  initTheme();
 });
+
+/* ── Theme Switch ── */
+function initTheme() {
+  const toggleBtn = document.getElementById("theme-toggle");
+  const html = document.documentElement;
+
+  // Check preference
+  const savedTheme = localStorage.getItem("theme");
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+    html.setAttribute("data-theme", "dark");
+  } else {
+    html.removeAttribute("data-theme");
+  }
+
+  if (!toggleBtn) return;
+
+  toggleBtn.addEventListener("click", () => {
+    if (html.getAttribute("data-theme") === "dark") {
+      html.removeAttribute("data-theme");
+      localStorage.setItem("theme", "light");
+    } else {
+      html.setAttribute("data-theme", "dark");
+      localStorage.setItem("theme", "dark");
+    }
+  });
+}
 
 /* ── Hamburger Menu ── */
 function initHamburger() {
@@ -370,8 +403,12 @@ function initHoneycombAnimation() {
       }
       ctx.closePath();
 
-      // Base stroke (light gray)
-      ctx.strokeStyle = "rgba(226, 232, 240, 0.4)"; // var(--card-border) with transparency
+      // Base stroke (adaptive color)
+      // We need to check theme or use canvas-level color, but usually we repaint clearRect anyway.
+      // Easiest is to set strokeStyle based on computed style if we want it dynamic, 
+      // OR just use a very specialized color that works on both or distinct logic.
+      const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+      ctx.strokeStyle = isDark ? "rgba(255, 255, 255, 0.1)" : "rgba(226, 232, 240, 0.4)";
       ctx.lineWidth = 1;
       ctx.stroke();
 
@@ -435,4 +472,25 @@ function initHoneycombAnimation() {
   }
 
   animate();
+}
+
+/* ── Back to Top ── */
+function initBackToTop() {
+  const backToTopBtn = document.getElementById("back-to-top");
+  if (!backToTopBtn) return;
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 500) {
+      backToTopBtn.classList.add("visible");
+    } else {
+      backToTopBtn.classList.remove("visible");
+    }
+  });
+
+  backToTopBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
 }
