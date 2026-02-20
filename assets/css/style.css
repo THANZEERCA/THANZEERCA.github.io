@@ -75,6 +75,9 @@ body {
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
     transition: background var(--transition), color var(--transition);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* ── Honeycomb Background ── */
@@ -352,6 +355,8 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 100px 24px;
+    flex: 1;
+    /* Allow content to grow and push footer down */
 }
 
 .section-header {
@@ -1162,7 +1167,7 @@ body {
    ══════════════════════════════════ */
 .contact-wrapper {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
+    grid-template-columns: 1fr 5fr;
     gap: 60px;
     margin-top: 24px;
 }
@@ -1261,13 +1266,21 @@ body {
 
 /* ── Contact Form ── */
 .contact-form {
-    background: var(--bg-soft);
-    padding: 40px;
+    background: transparent;
+    padding: 0;
+    /* Remove padding so iframe fits to edge */
     border-radius: var(--radius-md);
     border: 1px solid var(--card-border);
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    overflow: hidden;
+    /* Important for rounding iframe corners */
+}
+
+/* Ensure the iframe fills the container fully */
+.contact-form iframe {
+    display: block;
+    border-radius: var(--radius-md);
 }
 
 .form-group {

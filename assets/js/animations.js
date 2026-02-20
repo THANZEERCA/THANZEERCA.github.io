@@ -5,16 +5,18 @@
 gsap.registerPlugin(ScrollTrigger);
 
 /* ── Hero Entrance Timeline ── */
-const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
+if (document.querySelector(".hero-greeting")) {
+  const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-heroTl
-  .fromTo(".profile-photo", { scale: 0.5, autoAlpha: 0 }, { scale: 1, autoAlpha: 1, duration: 0.8 })
-  .fromTo(".hero-greeting", { y: 20, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.6 }, "-=0.3")
-  .fromTo(".hero-title", { y: 40, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.8 }, "-=0.3")
-  .fromTo(".hero-typing-line", { y: 20, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.6 }, "-=0.4")
-  .fromTo(".hero-sub", { y: 20, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.6 }, "-=0.3")
-  .fromTo(".hero-buttons", { y: 20, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.6 }, "-=0.3")
-  .fromTo(".stats-strip", { y: 30, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.8 }, "-=0.2");
+  heroTl
+    .fromTo(".profile-photo", { scale: 0.5, autoAlpha: 0 }, { scale: 1, autoAlpha: 1, duration: 0.8 })
+    .fromTo(".hero-greeting", { y: 20, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.6 }, "-=0.3")
+    .fromTo(".hero-title", { y: 40, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.8 }, "-=0.3")
+    .fromTo(".hero-typing-line", { y: 20, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.6 }, "-=0.4")
+    .fromTo(".hero-sub", { y: 20, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.6 }, "-=0.3")
+    .fromTo(".hero-buttons", { y: 20, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.6 }, "-=0.3")
+    .fromTo(".stats-strip", { y: 30, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.8 }, "-=0.2");
+}
 
 /* ── Scroll Reveal — Cards, Sections, Containers ── */
 const revealElements = gsap.utils.toArray(
