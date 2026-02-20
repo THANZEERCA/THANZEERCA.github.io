@@ -309,50 +309,7 @@ function initParticles() {
 }
 
 /* ── Form Submission ── */
-const contactForm = document.querySelector(".contact-form");
-if (contactForm) {
-  contactForm.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const submitBtn = this.querySelector("button[type='submit']");
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = "Sending...";
-    submitBtn.disabled = true;
-
-    setTimeout(() => {
-      // Show success toast
-      const toast = document.createElement("div");
-      toast.textContent = "✓ Message sent! I'll get back to you soon.";
-      toast.style.cssText = `
-        position: fixed;
-        top: 24px;
-        right: 24px;
-        background: linear-gradient(135deg, #2563eb, #6366f1);
-        color: white;
-        padding: 16px 28px;
-        border-radius: 10px;
-        font-family: 'Inter', sans-serif;
-        font-weight: 600;
-        font-size: 0.95rem;
-        z-index: 2000;
-        box-shadow: 0 8px 30px rgba(37,99,235,0.3);
-        transform: translateX(120%);
-        transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
-      `;
-      document.body.appendChild(toast);
-      requestAnimationFrame(() => (toast.style.transform = "translateX(0)"));
-
-      setTimeout(() => {
-        toast.style.transform = "translateX(120%)";
-        setTimeout(() => toast.remove(), 400);
-      }, 3000);
-
-      submitBtn.textContent = originalText;
-      submitBtn.disabled = false;
-      this.reset();
-    }, 800);
-  });
-}
+// Form submission is now handled by the embedded Google Form iframe.
 
 /* ── Honeycomb Cursor Animation ── */
 function initHoneycombAnimation() {
