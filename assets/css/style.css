@@ -1266,7 +1266,7 @@ body {
 
 /* ── Contact Form ── */
 .contact-form {
-    background: transparent;
+    background: white;
     padding: 0;
     /* Remove padding so iframe fits to edge */
     border-radius: var(--radius-md);
